@@ -2,7 +2,7 @@ import React from "react";
 
 
 import { getWorkspaceDashboardByWorkspaceId } from "@/app/data/Dashboard/get-workspace-dashboard";
-import { Dashboard } from "./Dashboard/page";
+import Dashboard from "./Dashboard/page";
 
 interface PageProps {
   params: Promise<{ workspaceId: string }>;
