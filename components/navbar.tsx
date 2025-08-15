@@ -12,7 +12,7 @@ interface Props {
   email: string;
   image: string;
 }
-export const Navbar = ({ id, email, name, image }: Props) => {
+export const Navbar = ({ email, name, image }: Props) => {
   return (
     <nav className="w-full flex items-center justify-between p-4">
       <div>

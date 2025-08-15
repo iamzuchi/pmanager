@@ -9,12 +9,12 @@ import Image from "next/image";
 import { X } from "lucide-react";  
 
 interface FileUploaderProps {
-  onChange: (
+  onChangeAction: (
     value: { name: string; url: string; type: $Enums.FileType }[]
   ) => void;
   value: { name: string; url: string; type: $Enums.FileType }[];
 }
-export const FileUpload = ({ value, onChange }: FileUploaderProps) => {
+export const FileUpload = ({ value, onChangeAction }: FileUploaderProps) => {
   const [selectedType, setSelectedType] = useState<$Enums.FileType | undefined>(
     undefined
   );
@@ -23,7 +23,7 @@ export const FileUpload = ({ value, onChange }: FileUploaderProps) => {
     <div>
       {value?.length > 0 && (
         <div className="flex flex-wrap gap-4 mb-4">
-          {value.map((file, index) => (
+          {value.map((file) => (
             <div
               key={file?.url}
               className="relative w-[200px] h-[200px] rounded-lg"
@@ -37,7 +37,7 @@ export const FileUpload = ({ value, onChange }: FileUploaderProps) => {
 
               <button
                 onClick={() =>
-                  onChange(value.filter((f) => f.url !== file.url))
+                  onChangeAction(value.filter((f) => f.url !== file.url))
                 }
                 className="absolute -top-2 -right-2 p-1 bg-rose-500 rounded-full text-white"
               >
@@ -61,7 +61,7 @@ export const FileUpload = ({ value, onChange }: FileUploaderProps) => {
             }));
 
             const updatedFiles = [...value, ...newFiles];
-            onChange(updatedFiles);
+            onChangeAction(updatedFiles);
             setSelectedType(undefined);
           }}
           onUploadError={(error: Error) => {

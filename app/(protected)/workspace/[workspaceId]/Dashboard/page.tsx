@@ -3,10 +3,7 @@
 import React from 'react'
 
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
 import { BarChart2, Users, ListChecks, CheckCircle, FolderOpen } from "lucide-react";
-import { format } from 'date-fns/format';
-import { TaskStatus } from '@prisma/client';
 import TasksByStatusCard from '@/components/task/task-status-card';
 
 interface DashboardProps {
@@ -15,7 +12,7 @@ interface DashboardProps {
   tasks?: any[];
 }
  
-export const Dashboard = ({ projects, workspaceMembers, tasks }: DashboardProps) => {
+const Dashboard = ({ projects, workspaceMembers, tasks }: DashboardProps) => {
   
   
   return (
@@ -116,5 +113,7 @@ export const Dashboard = ({ projects, workspaceMembers, tasks }: DashboardProps)
     </div>
   );
 }
+
+export default Dashboard;
 
 

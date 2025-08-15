@@ -52,7 +52,6 @@ export type TaskFormValues = z.infer<typeof taskFormSchema>;
 
 export const CreateTaskDialog = ({ project }: Props) => {
   const router = useRouter();
-  const [open, setOpen] = useState(false);
   const workspaceId = useWorkspaceId();
   const [pending, setPending] = useState(false);
 
@@ -318,7 +317,7 @@ export const CreateTaskDialog = ({ project }: Props) => {
                   <FormControl>
                     <FileUpload
                       value={field.value || []}
-                      onChange={field.onChange}
+                      onChangeAction={field.onChange}
                     />
                   </FormControl>
                   <FormMessage />

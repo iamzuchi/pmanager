@@ -8,7 +8,7 @@ import { ProfileAvatar } from "../profile-avatar";
 import { Separator } from "../ui/separator";
 import { Badge } from "../ui/badge";
 import { format } from "date-fns";
-import Image from "next/image";
+
 import { EditTaskDialog } from "./edit-task-dialog";
 import { formatName } from "@/utils/format-name";
 

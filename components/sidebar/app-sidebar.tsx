@@ -11,11 +11,10 @@ import { WorkspaceSelector } from "./workspace-selector";
 import { NavMain } from "./nav-main";
 import { NavProjects } from "./nav-project-list";
 
-export const AppSidebar = ({ data, projects, workspaceMembers, user}:{
+export const AppSidebar = ({ data, projects, workspaceMembers}:{
         data: AppSidebarDataProps;
         projects: ProjectProps[];
         workspaceMembers: WorkspaceMembersProps[];
-        user: User
     }
 ) => {
     return (

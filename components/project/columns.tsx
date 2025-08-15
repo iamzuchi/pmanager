@@ -84,7 +84,7 @@ export const columns: ColumnDef<TaskTableItem>[] = [
     cell: ({ row }) => {
       const status = row.getValue("status") as string;
       return (
-        <Badge variant={status as any}>
+        <Badge variant={status as "default" | "secondary" | "destructive" | "outline"}>
           {status === "IN_PROGRESS" ? "IN PROGRESS" : status}
         </Badge>
       );
@@ -252,7 +252,7 @@ export const myTaskColumns: ColumnDef<TaskTableItem>[] = [
     cell: ({ row }) => {
       const status = row.getValue("status") as string;
       return (
-        <Badge variant={status as any}>
+        <Badge variant={status as "default" | "secondary" | "destructive" | "outline"}>
           {status === "IN_PROGRESS" ? "IN PROGRESS" : status}
         </Badge>
       );

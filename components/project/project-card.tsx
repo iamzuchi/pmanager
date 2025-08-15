@@ -14,7 +14,7 @@ interface DataProps {
   task: ProjectTaskProps;
   provided: DraggableProvided;
 }
-export const ProjectCard = ({ ref, provided, task }: DataProps) => {
+export const ProjectCard = ({ provided, task }: DataProps) => {
   const workspaceId = useWorkspaceId();
   const projectId = useProjectId();
 

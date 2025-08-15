@@ -51,7 +51,7 @@ export default async function InvitePage({ params }: PageProps) {
       <Card className="max-w-md w-full">
         <CardHeader>
           <CheckCircle className="text-green-500 w-12 h-12 mx-auto" />
-          <CardTitle className="text-center">You've been invited!</CardTitle>
+          <CardTitle className="text-center">{"You've been invited!"}</CardTitle>
           <CardDescription className="text-center">
             Join <span className="font-semibold">{invite.workspaceName}</span> workspace.
           </CardDescription>

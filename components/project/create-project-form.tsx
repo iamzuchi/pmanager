@@ -20,7 +20,6 @@ import { toast } from "sonner";
 import { createNewProject } from "@/app/actions/project";
 import { useRouter } from "next/navigation";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "../ui/select";
-import { ProjectPhase } from "@prisma/client";
 import { projectPhaseStats } from "@/utils";
 
 interface Props {

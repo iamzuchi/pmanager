@@ -24,7 +24,6 @@ export const ProjectDashboard = ({
   project,
   tasks,
   activities,
-  totalWorkspaceMembers,
   comments,
 }: ProjectDashbaordProps) => {
   return (

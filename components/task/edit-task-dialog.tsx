@@ -41,7 +41,7 @@ import { Calendar } from "../ui/calendar";
 import { taskStats } from "@/utils";
 import { Textarea } from "../ui/textarea";
 import { toast } from "sonner";
-import { createNewTask, updateTask } from "@/app/actions/task";
+import { updateTask } from "@/app/actions/task";
 import { ProjectProps } from "@/lib/types";
 
 interface Props {
@@ -55,7 +55,6 @@ export type TaskFormValues = z.infer<typeof taskFormSchema>;
 
 export const EditTaskDialog = ({ task, project }: Props) => {
   const router = useRouter();
-  const [open, setOpen] = useState(false);
   const workspaceId = useWorkspaceId();
   const [pending, setPending] = useState(false);
 

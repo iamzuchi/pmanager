@@ -4,7 +4,7 @@ import { db } from "@/lib/db";
 import { userRequired } from "@/app/data/user/is-user-authenticated";
 
 export const getDocumentation = async (projectId: string) => {
-  const { user } = await userRequired();
+
 
   const documentation = await db.documentation.findFirst({
     where: { 

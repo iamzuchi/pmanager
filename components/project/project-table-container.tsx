@@ -7,9 +7,37 @@ export const ProjectTableContainer = async ({
   projectId: string;
 }) => {
   const { tasks } = await getProjectById(projectId);
+  // Map tasks to match TaskProps structure
+  const mappedTasks = tasks.map((task: any) => ({
+    ...task,
+    assignedTo: task.assignedTo
+      ? {
+          about: null,
+          industryType: "",
+          role: "",
+          country: "",
+          onboardingCompleted: false,
+          createdAt: new Date(),
+          updatedAt: new Date(),
+          ...task.assignedTo,
+        }
+      : {
+          name: "",
+          id: "",
+          email: "",
+          about: null,
+          industryType: "",
+          role: "",
+          country: "",
+          image: "",
+          onboardingCompleted: false,
+          createdAt: new Date(),
+          updatedAt: new Date(),
+        },
+  }));
   return (
     <div className="p-0">
-      <ProjectTable tasks={tasks as any} />
+      <ProjectTable tasks={mappedTasks} />
     </div>
   );
 };

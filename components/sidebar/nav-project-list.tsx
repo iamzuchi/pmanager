@@ -4,9 +4,7 @@ import { SidebarGroup, SidebarGroupLabel, SidebarMenu, SidebarMenuButton, Sideba
 import { usePathname } from "next/navigation";
 import { CreateProjectForm } from "../project/create-project-form";
 import { $Enums } from "@prisma/client";
-import { getPhaseColor } from "@/lib/utils";
-import { phaseLabels } from "@/lib/constants";
-import { projectPhaseStats } from "@/utils";
+
 import { Badge } from "../ui/badge";
 
  
@@ -15,7 +13,6 @@ export const NavProjects = ({projects, workspaceMembers}:{
     projects: ProjectProps[];
     workspaceMembers: WorkspaceMembersProps[]
 }) => {
-    const {isMobile, setOpenMobile} = useSidebar()
     const  pathname = usePathname()
     return <>
 
@@ -34,9 +31,6 @@ export const NavProjects = ({projects, workspaceMembers}:{
     const phase = (proj.phase as $Enums.ProjectPhase); 
     const isActive = pathname === href;
 
-    const phaseStat = projectPhaseStats.find((p)=> p.phase === phase);
-    
-
 
     return (
       <SidebarMenuItem key={proj?.id}>
@@ -52,7 +46,7 @@ export const NavProjects = ({projects, workspaceMembers}:{
             <span
               className={`flex items-center justify-center rounded-md border text-[10px] px-2 py-0.5 font-medium text-white`}
             >
-              <Badge variant={phase as any}>
+              <Badge variant={phase}>
               {phase === "ON_HOLD" ? "HOLD" : phase}
               </Badge>
             </span>

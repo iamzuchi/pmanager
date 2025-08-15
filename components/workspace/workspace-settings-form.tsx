@@ -6,7 +6,6 @@ import { $Enums, Workspace } from "@prisma/client";
 import { useRouter } from "next/navigation";
 import React from "react";
 import { useForm } from "react-hook-form";
-import { z } from "zod";
 import {
   Card,
   CardHeader,
@@ -82,10 +81,27 @@ export const WorkspaceSettingsForm = ({ data }: { data: DataProps }) => {
     }
   };
 
-  const handleInvitation = () => {
+  const handleInvitation = async () => {
+    if (isLoading) {
+      toast.error("Please wait, processing your request.");
+      return;
+    }
     setIsLoading(true);
-      //Send invite email
-     //setIsLoading(false);
+    try {
++      // TODO: Replace this with your actual invite email sending logic
+       // Example: await sendInviteEmail(inviteEmail, data.id);
+      //  await new Promise((resolve) => setTimeout(resolve, 1000)); // Simulate async operation
+       toast.success("Invitation sent successfully.");
+      setInviteEmail("");
+     } catch (error) {
+       if (error instanceof Error) {
+         toast.error(error.message || "Failed to send invitation. Please try again.");
+       } else {
+         toast.error("Failed to send invitation. Please try again.");
+       }
+     } finally {
+      setIsLoading(false);
+     }
   };
 
   const copyInviteLink = () => {
@@ -94,6 +110,7 @@ export const WorkspaceSettingsForm = ({ data }: { data: DataProps }) => {
   };
 
   const handleResetInvite = async () => {
+    
     try {
       setIsPending(true);
       await resetWorkspaceInviteCode(data.id);

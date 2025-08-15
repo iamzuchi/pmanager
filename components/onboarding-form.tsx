@@ -13,6 +13,7 @@ import { countryList } from '@/utils/countriesList';
 import { industryTypesList, roleList } from '@/utils';
 import { Textarea } from './ui/textarea';
 import { toast } from 'sonner';
+import Image from 'next/image';
 import { createUser } from '@/app/actions/user';
 
 interface Props {
@@ -88,7 +89,9 @@ export const OnboardingForm = ({ name, email, image }: Props) => {
                             {countryList.map(country =>(
                               <SelectItem key={country.code} value={country.name}>
                                 <div className='flex flex-row items-center'>
-                                    <img 
+                                    <Image
+                                      width={16}
+                                      height={12}
                                       src={country.flag}
                                       alt={country.name}
                                       className='w-4 h-3'

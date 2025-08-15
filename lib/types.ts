@@ -4,7 +4,6 @@ import {
     Comment,
     Task,
     TaskStatus,
-    Workspace,
     WorkspaceMember,
   } from "@prisma/client";
   

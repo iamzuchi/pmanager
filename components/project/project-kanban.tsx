@@ -34,7 +34,7 @@ export const ProjectKanban = ({
 }) => {
   const router = useRouter();
 
-  if (initialTasks.length === 0) return null;
+  // if (initialTasks.length === 0) return null;
 
   const [columns, setColumns] = useState<Column[]>([]);
 
@@ -111,8 +111,12 @@ export const ProjectKanban = ({
         console.log(error);
       }
     },
-    [columns]
+    [columns, router]
   );
+  
+  if (initialTasks.length === 0) {  
+    return null;
+  }
 
   return (
     <div className="overflow-x-auto pb-4 md:px-4">
